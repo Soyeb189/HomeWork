@@ -19,7 +19,8 @@
         android:textColorHint="@color/colorAccent"
         >
 
-        <com.google.android.material.textfield.TextInputEditText
+        <EditText
+            android:id="@+id/edtRegName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Nmae"
@@ -35,7 +36,8 @@
         android:textColorHint="@color/colorAccent"
         >
 
-        <com.google.android.material.textfield.TextInputEditText
+        <EditText
+            android:id="@+id/edtRegEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Email"
@@ -51,7 +53,8 @@
         android:textColorHint="@color/colorAccent"
         >
 
-        <com.google.android.material.textfield.TextInputEditText
+        <EditText
+            android:id="@+id/edtRegPhone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Phone Number"
@@ -68,7 +71,8 @@
         android:textColorHint="@color/colorAccent"
         >
 
-        <com.google.android.material.textfield.TextInputEditText
+        <EditText
+            android:id="@+id/edtRegPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Password"
@@ -85,7 +89,8 @@
         android:textColorHint="@color/colorAccent"
         >
 
-        <com.google.android.material.textfield.TextInputEditText
+        <EditText
+            android:id="@+id/edtRegConfirmPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Confirm Password"
@@ -94,6 +99,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
+        android:id="@+id/btnRegister"
         android:layout_marginTop="20dp"
         android:layout_width="match_parent"
         android:layout_height="60dp"

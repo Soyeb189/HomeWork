@@ -1,13 +1,27 @@
 package com.example.homework.Model;
 
+import androidx.room.ColumnInfo;
 import androidx.room.Entity;
+import androidx.room.Ignore;
+import androidx.room.PrimaryKey;
 
 @Entity(tableName = "user")
 public class User {
+
+    @ColumnInfo(name = "user_name")
     private String name;
+
+    @ColumnInfo(name = "user_email")
     private String email;
+
+    @ColumnInfo(name = "user_phone")
     private String phoneNumber;
+
+    @ColumnInfo(name = "user_password")
     private String password;
+
+    @ColumnInfo(name = "user_id")
+    @PrimaryKey(autoGenerate = true)
     private long id;
 
     public User(String name, String email, String phoneNumber, String password, long id) {
@@ -17,6 +31,8 @@ public class User {
         this.password = password;
         this.id = id;
     }
+
+    @Ignore
     public User(){
 
     }
