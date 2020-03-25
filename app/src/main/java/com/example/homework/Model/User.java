@@ -5,8 +5,10 @@ import androidx.room.Entity;
 import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
+import java.io.Serializable;
+
 @Entity(tableName = "user")
-public class User {
+public class User implements Serializable {
 
     @ColumnInfo(name = "user_name")
     private String name;
@@ -75,5 +77,17 @@ public class User {
 
     public void setId(long id) {
         this.id = id;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", email='" + email + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                ", password='" + password + '\'' +
+
+                '}';
     }
 }

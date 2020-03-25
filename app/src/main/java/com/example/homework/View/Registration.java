@@ -42,6 +42,9 @@ public class Registration extends AppCompatActivity {
         buttonReg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if (!ValidateName() | !ValidatePhone() | !ValidateEmail() | !ValidatePassword() | !ValidateConfirmPassword()){
+                    return;
+                }
                 String name = editTextName.getText().toString().trim();
                 String email = editTextEmail.getText().toString().trim();
                 String phone = editTextPhone.getText().toString().trim();
@@ -72,6 +75,60 @@ public class Registration extends AppCompatActivity {
             return false;
         } else {
             editTextEmail.setError(null);
+            return true;
+        }
+    }
+
+    private boolean ValidateName(){
+        String userName = editTextName.getText().toString();
+        if (userName.isEmpty()){
+            editTextName.setError("Field Can't be empty");
+            return false;
+        }else if (!userName.matches("^[A-Za-z]+$")){
+            editTextName.setError("Valid Name is required");
+            return false;
+        }else {
+            editTextName.setError(null);
+            return true;
+        }
+    }
+
+    private boolean ValidatePassword(){
+        String password = editTextPassword.getText().toString();
+        if (password.isEmpty()){
+            editTextPassword.setError("Field Can't be empty");
+            return false;
+        }else if (password.length()<6){
+            editTextPassword.setError("Length must be more than 6 ");
+            return false;
+        }else {
+            editTextPassword.setError(null);
+            return true;
+        }
+    }
+
+    private boolean ValidateConfirmPassword(){
+        String confirmPassword = editTextConfirmPassword.getText().toString().trim();
+        String password = editTextPassword.getText().toString().trim();
+        if (confirmPassword.isEmpty()){
+            editTextConfirmPassword.setError("Field Can't be empty");
+            return false;
+        }else if(!confirmPassword.equals(password)){
+            editTextConfirmPassword.setError("Password is not matched");
+            return false;
+        }else {
+            editTextConfirmPassword.setError(null);
+            return true;
+        }
+    }
+
+    private boolean ValidatePhone(){
+        String phone = editTextPhone.getText().toString().trim();
+        if (phone.isEmpty()){
+            editTextPhone.setError("Phone number is required");
+            return false;
+        }else {
+            editTextPhone.setError(null);
             return true;
         }
     }

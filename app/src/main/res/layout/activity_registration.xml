@@ -23,7 +23,7 @@
             android:id="@+id/edtRegName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Nmae"
+            android:hint="Name"
             android:ems="10"
             android:inputType="text"/>
     </com.google.android.material.textfield.TextInputLayout>

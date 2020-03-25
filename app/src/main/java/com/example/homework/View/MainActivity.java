@@ -5,6 +5,7 @@ import androidx.room.Room;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
@@ -16,12 +17,15 @@ import com.example.homework.R;
 import com.example.homework.UserDAO;
 import com.example.homework.UserDataBase;
 
+import java.io.Serializable;
+
 public class MainActivity extends AppCompatActivity {
 
     private Button buttonLogin,buttonReg;
     private EditText editTextEmail,editTextPassword;
     UserDAO dao;
     UserDataBase dataBase;
+    User user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,9 +52,11 @@ public class MainActivity extends AppCompatActivity {
                 String email = editTextEmail.getText().toString().trim();
                 String password = editTextPassword.getText().toString().trim();
 
-                User user = dao.getUser(email,password);
+                user = dao.getUser(email,password);
+
                 if (user != null){
                     Intent i = new Intent(MainActivity.this, UpdateInformation.class);
+                    i.putExtra("User", user);
                     startActivity(i);
                     finish();
                 }else {
