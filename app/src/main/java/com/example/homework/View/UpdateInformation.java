@@ -36,10 +36,10 @@ public class UpdateInformation extends AppCompatActivity {
         editTextConfirmPassword = findViewById(R.id.edtUpdateConfirmPassword);
         buttonUpdate = findViewById(R.id.btnUpdate);
 
-        dataBase = Room.databaseBuilder(getApplicationContext(),UserDataBase.class,"UserDb")
-                .allowMainThreadQueries()
-                .build();
-        dao = dataBase.getUserDao();
+//        dataBase = Room.databaseBuilder(getApplicationContext(),UserDataBase.class,"UserDb")
+//                .allowMainThreadQueries()
+//                .build();
+//        dao = dataBase.getUserDao();
 
 
         user = (User) getIntent().getSerializableExtra("User");
@@ -73,7 +73,8 @@ public class UpdateInformation extends AppCompatActivity {
                 user.setPhoneNumber(phone);
                 user.setId(u_id);
 
-                dataBase.getUserDao().updateUser(user);
+                //dataBase.getUserDao().updateUser(user);
+                UserDataBase.getDataBase(getApplicationContext()).getUserDao().updateUser(user);
 
                 Toast.makeText(UpdateInformation.this, "Your Data is updated Successfully", Toast.LENGTH_SHORT).show();
 

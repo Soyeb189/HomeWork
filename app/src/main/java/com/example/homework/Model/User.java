@@ -1,9 +1,12 @@
 package com.example.homework.Model;
 
+import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
+import androidx.room.migration.Migration;
+import androidx.sqlite.db.SupportSQLiteDatabase;
 
 import java.io.Serializable;
 
@@ -26,12 +29,27 @@ public class User implements Serializable {
     @PrimaryKey(autoGenerate = true)
     private long id;
 
-    public User(String name, String email, String phoneNumber, String password, long id) {
+
+    @ColumnInfo(name = "checked_val")
+    private int checkValue;
+
+    @ColumnInfo(name = "pro_image")
+    private String image;
+
+    @ColumnInfo(name = "device_uuid")
+    private String uuid;
+
+
+
+    public User(String name, String email, String phoneNumber, String password, long id, int checkValue, String image, String uuid) {
         this.name = name;
         this.email = email;
         this.phoneNumber = phoneNumber;
         this.password = password;
         this.id = id;
+        this.checkValue = checkValue;
+        this.image = image;
+        this.uuid = uuid;
     }
 
     @Ignore
@@ -79,15 +97,29 @@ public class User implements Serializable {
         this.id = id;
     }
 
-    @Override
-    public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", email='" + email + '\'' +
-                ", phoneNumber='" + phoneNumber + '\'' +
-                ", password='" + password + '\'' +
-
-                '}';
+    public int getCheckValue() {
+        return checkValue;
     }
+
+    public void setCheckValue(int checkValue) {
+        this.checkValue = checkValue;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+    public String getUuid() {
+        return uuid;
+    }
+
+    public void setUuid(String uuid) {
+        this.uuid = uuid;
+    }
+
+
 }
